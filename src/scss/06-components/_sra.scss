@@ -1,0 +1,22 @@
+.sraframe {
+
+  display: block;
+  width: 275px;
+  height: 163px;
+  border: 0 none;
+  margin: $layout_padding auto;
+  overflow: hidden;
+
+}
+
+
+@media (min-width: $layout_breakpoint_mobile) {
+
+  .sraframe {
+
+    float: right;
+    margin: $layout_padding 0 $layout_padding $layout_padding;
+
+  }
+
+}

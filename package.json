@@ -1,0 +1,50 @@
+{
+  "name": "taylorsolicitors",
+  "version": "1.0.0",
+  "description": "taylorsolicitors.co.uk website",
+  "type": "module",
+  "main": "index.html",
+  "scripts": {
+    "clean": "rm -rf build",
+    "init": "npm run clean && npm run build:htm && cp ./src/media ./build -r && cp ./src/root/* ./build -r",
+    "build:htm": "concurrently 'npm:build:htm:*' && npm run minify:htm",
+    "build:htm:home": "mkdir ./build/ -p && ejs ./src/html/index.ejs -f ./tokens.json -o ./build/index.html",
+    "build:htm:term": "mkdir ./build/terms/ -p && ejs ./src/html/terms.ejs -f ./tokens.json -o ./build/terms/index.html",
+    "minify:htm": "html-minifier --input-dir ./build/ --file-ext html --output-dir ./build/ --remove-comments --collapse-whitespace",
+    "build:css": "postcss src/scss/main.scss -o build/css/main.css --no-map",
+    "watch:css": "postcss src/scss/main.scss -o build/css/main.css --env development -m -w --verbose",
+    "watch:srv": "browser-sync start --config browsersync.config.cjs",
+    "build": "npm run init && npm run build:css",
+    "start": "npm run init && concurrently 'npm:watch:*'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craigbuckler/taylorsolicitors.git"
+  },
+  "keywords": [
+    "taylor",
+    "solicitors",
+    "legal",
+    "service"
+  ],
+  "author": "Craig Buckler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/craigbuckler/taylorsolicitors/issues"
+  },
+  "homepage": "https://github.com/craigbuckler/taylorsolicitors#readme",
+  "devDependencies": {
+    "autoprefixer": "10.3.1",
+    "browser-sync": "2.27.5",
+    "concurrently": "6.2.1",
+    "cssnano": "5.0.7",
+    "ejs": "3.1.6",
+    "html-minifier": "4.0.0",
+    "postcss": "8.3.6",
+    "postcss-advanced-variables": "3.0.1",
+    "postcss-calc": "8.0.0",
+    "postcss-cli": "8.3.1",
+    "postcss-nested": "5.0.6",
+    "postcss-scss": "4.0.0"
+  }
+}

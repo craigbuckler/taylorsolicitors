@@ -1,0 +1,23 @@
+.vcard {
+
+  .fn {
+    font-size: 1.2em;
+  }
+
+  ul.adr, ul.adr li {
+    @include resetlist;
+  }
+
+  dl {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 0.5em;
+  }
+
+  dt {
+    width: 7em;
+    text-align: right;
+    padding-right: 1em;
+  }
+
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="<%= meta.language %>">
+<head>
+<meta charset="UTF-8">
+<title><%= meta.title %> | <%= meta.topic %></title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<!-- styles -->
+<link rel="stylesheet" href="/css/main.css?v<%= meta.version %>" />
+
+<!-- meta data -->
+<meta name="description" content="<%= meta.description %>" />
+<meta name="keywords" content="<%= meta.keywords %>" />
+<meta name="author" content="<%= meta.author %>" />
+<meta name="robots" content="index, follow" />
+
+<!-- favicons -->
+<link rel="icon" href="/favicon.ico" />
+
+<!-- application -->
+<meta name="application-name" content="<%= meta.site %>" />
+<meta name="theme-color" content="<%= design.color.back[0] %>" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="apple-mobile-web-app-title" content="<%= meta.site %>" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+</head>
+<body>
+
+  <header>
+
+    <img id="hero" src="/media/high-rise.jpg" width="2000" height="500" alt="skyscraper" />
+
+    <nav class="pagecontain">
+
+      <ul>
+        <li id="logo"><a href="/"><img src="/media/paul-taylor-solicitors.png" width="206" height="131" alt="Paul Taylor Solicitors" /></a></li>
+        <li id="menu"<% if (meta.menuActive == 'home') { %> class="active"<% } %>><a href="/">services</a></li>
+        <li<% if (meta.menuActive == 'terms') { %> class="active"<% } %>><a href="/terms/">terms</a></li>
+      </ul>
+
+  </nav></header>
+
+  <main><div class="pagecontain">
+
+    <h1><%= meta.title %></h1>

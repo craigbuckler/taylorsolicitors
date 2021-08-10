@@ -1,0 +1,82 @@
+header {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $color_back_1;
+  z-index: 9;
+
+  img#hero {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    object-fit: cover;
+    object-position: 50%;
+    opacity: 0.35;
+    z-index: -1;
+  }
+
+  nav, ul, li, a {
+    height: 100%;
+    @include resetlist;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+  }
+
+  #logo {
+
+    a {
+      width: auto;
+      max-width: none;
+      padding: 0;
+    }
+
+    img {
+      width: auto;
+      max-height: 100%;
+      padding: 2px $layout_padding 6px 0;
+    }
+
+  }
+
+  li#menu {
+    margin-left: auto;
+  }
+
+  a:link, a:visited {
+    display: block;
+    height: 100%;
+    outline-offset: 0;
+  }
+
+  ul a {
+    width: 25vw;
+    max-width: 6em;
+    padding: 2vh 0;
+    font-weight: $type_body_bold;
+    text-align: center;
+  }
+
+  .active {
+    background-color: $color_back_0;
+  }
+
+  & + * {
+    padding-top: calc(min(20vw, $layout_header_maxheight) + (1.5 * $layout_padding));
+  }
+
+}
+
+h1, h2, h3, *:target {
+  scroll-margin-top: calc(min(20vw, $layout_header_maxheight) + (1.5 * $layout_padding));
+}
